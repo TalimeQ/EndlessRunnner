@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "BasePickup.generated.h"
 
+// Will broadcast on item pickup event
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPickup);
+
 UCLASS()
 class ENDLESSRUNNER_API ABasePickup : public AActor
 {
@@ -18,11 +21,12 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	//UPROPERTY(BlueprintAssignable)
+	FOnPickup OnPickup;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	UFUNCTION(BlueprintCallable,Category = "Pickup")
+	virtual void OnItemPickup();
 
-	
-	
 };

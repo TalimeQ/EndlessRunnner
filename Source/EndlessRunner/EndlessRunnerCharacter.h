@@ -46,6 +46,11 @@ protected:
 
 public:
 
+
+	UFUNCTION(BlueprintCallable, Category = "Score")
+	void SetScore(int newScore);
+	UFUNCTION(BlueprintPure, Category = "Score")
+	int GetScore();
 	/* Sets if player can turn */
 	UFUNCTION(BlueprintCallable,Category = "Movement")
 	void SetCanTurn(bool bNewValue);
@@ -58,6 +63,9 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 private:
+	
+
+	int score = 0;
 	FRotator desiredRot{ 0,0,0};
 };
 

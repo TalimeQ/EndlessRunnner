@@ -111,11 +111,23 @@ void  AEndlessRunnerCharacter::TurnNinety(float value)
 	}
 
 }
+
 void  AEndlessRunnerCharacter::SetCanTurn(bool bNewValue)
 {
 	bCanTurn = bNewValue;
 }
+
 bool  AEndlessRunnerCharacter::GetCanTurn()
 {
 	return bCanTurn;
+}
+
+void AEndlessRunnerCharacter::SetScore(int newScore)
+{
+	score = newScore;
+}
+
+int  AEndlessRunnerCharacter::GetScore()
+{
+	return score;
 }

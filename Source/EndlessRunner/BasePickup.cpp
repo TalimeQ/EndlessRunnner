@@ -24,4 +24,8 @@ void ABasePickup::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
+void ABasePickup::OnItemPickup()
+{
+	UE_LOG(LogTemp,Warning,TEXT("Item Picked up"))
+	OnPickup.Broadcast();
+}
