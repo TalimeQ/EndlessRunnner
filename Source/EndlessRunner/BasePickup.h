@@ -10,7 +10,7 @@
 // Will broadcast on item pickup event
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPickup, class AActor*, OtherActor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPickup, class AEndlessRunnerCharacter*, runnerCharacter);
 
 UCLASS()
 class ENDLESSRUNNER_API ABasePickup : public AActor
