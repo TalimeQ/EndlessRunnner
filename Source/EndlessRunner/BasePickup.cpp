@@ -24,8 +24,8 @@ void ABasePickup::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-void ABasePickup::OnItemPickup()
+void ABasePickup::OnItemPickup(AEndlessRunnerCharacter* runnerCharacter)
 {
 	UE_LOG(LogTemp,Warning,TEXT("Item Picked up"))
-	OnPickup.Broadcast();
+	OnPickup.Broadcast(runnerCharacter);
 }
