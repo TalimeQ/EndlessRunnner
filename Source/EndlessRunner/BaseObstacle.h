@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Interfaces/Activates.h"
 #include "BaseObstacle.generated.h"
 
 class AEndlessRunnerCharacter;
 UCLASS()
-class ENDLESSRUNNER_API ABaseObstacle : public AActor
+class ENDLESSRUNNER_API ABaseObstacle : public AActor , public IActivates
 {
 	GENERATED_BODY()
 	

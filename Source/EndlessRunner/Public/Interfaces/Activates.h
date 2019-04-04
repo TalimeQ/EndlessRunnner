@@ -18,11 +18,11 @@ class ENDLESSRUNNER_API IActivates
 {
 	GENERATED_IINTERFACE_BODY()
 public:
-	//classes using this interface must implement ReactToHighNoon
+	//classes using this interface must implement Deactivation
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MyCategory")
 		bool Deactivate();
 
-	//classes using this interface may implement ReactToMidnight
+	//classes using this interface may implement Activation
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MyCategory")
 		bool Activate();
 };

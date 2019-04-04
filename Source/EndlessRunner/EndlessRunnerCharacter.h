@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "EndlessRunnerCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnScored);
+
 UCLASS(config=Game)
 class AEndlessRunnerCharacter : public ACharacter
 {
@@ -20,7 +22,8 @@ class AEndlessRunnerCharacter : public ACharacter
 	class UCameraComponent* FollowCamera;
 public:
 	AEndlessRunnerCharacter();
-
+	UPROPERTY(BlueprintAssignable)
+	FOnScored OnScored;
 
 protected:
 
@@ -34,7 +37,7 @@ protected:
 	void TurnNinety(float value);
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement", BlueprintReadWrite)
-		float movementSpeed = 1.0f;
+		float movementSpeed = 1000.0f;
 
 	UPROPERTY(Category = "Movement", BlueprintReadWrite)
 		bool bCanPlay = true;

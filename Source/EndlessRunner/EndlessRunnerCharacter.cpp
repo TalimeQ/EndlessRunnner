@@ -65,6 +65,7 @@ void  AEndlessRunnerCharacter::Tick(float deltaTime)
 {
 	//Movement input is multiplied by delta, no point of doing it here
 	MoveForward(movementSpeed);
+	movementSpeed += deltaTime;
 }
 
 
@@ -79,7 +80,7 @@ void AEndlessRunnerCharacter::MoveForward(float Value)
 
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-		AddMovementInput(Direction, Value);
+		AddMovementInput(Direction, Value );
 	}
 }
 
@@ -95,7 +96,7 @@ void AEndlessRunnerCharacter::MoveRight(float Value)
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
-		AddMovementInput(Direction, Value);
+		AddMovementInput(Direction, Value * movementSpeed);
 	}
 }
 
@@ -126,6 +127,8 @@ bool  AEndlessRunnerCharacter::GetCanTurn()
 void AEndlessRunnerCharacter::SetScore(int newScore)
 {
 	score = newScore;
+	OnScored.Broadcast();
+	
 }
 
 int  AEndlessRunnerCharacter::GetScore()

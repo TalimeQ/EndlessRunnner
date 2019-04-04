@@ -10,6 +10,7 @@
  * 
  */
 class AEndlessRunnerCharacter;
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDeactivate);
 
 UCLASS()
 class ENDLESSRUNNER_API ANegativeScoreObstacle : public ABaseObstacle
@@ -17,19 +18,26 @@ class ENDLESSRUNNER_API ANegativeScoreObstacle : public ABaseObstacle
 	GENERATED_BODY()
 private:
 
-	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
-	class UStaticMeshComponent* objectStaticMesh = nullptr;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Score")
 	int scoreTaken{ 0 };
 protected:
+	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category = "Mesh")
+	class UStaticMeshComponent* objectStaticMesh = nullptr;
 
-    virtual void OnObstacleCollision_Implementation(AEndlessRunnerCharacter* endlessRunner) override;
+   
+
 	UPROPERTY(BlueprintReadWrite, EditInstanceOnly)
 	bool bIsActive = true;
+
 public:
 	ANegativeScoreObstacle();
 
-private:
+	UPROPERTY(BlueprintAssignable)
+	FDeactivate DeactivateOnCol;
+
+protected:
+	virtual void OnObstacleCollision_Implementation(AEndlessRunnerCharacter* endlessRunner) override;
 	
 		
 };

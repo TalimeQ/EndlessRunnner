@@ -7,10 +7,12 @@
 
 void ANegativeScoreObstacle::OnObstacleCollision_Implementation(AEndlessRunnerCharacter* endlessRunner)
 {
-	UE_LOG(LogTemp, Warning, TEXT("I WILL NEGATE WHAT YOU HAVE EARNED"));
-	int punishedScore = endlessRunner->GetScore() - this->scoreTaken;
+	
+	int punishedScore = endlessRunner->GetScore();
+	punishedScore -= this->scoreTaken;
+	
 	endlessRunner->SetScore(punishedScore);
-	this->SetActorHiddenInGame(true);
+	this->DeactivateOnCol.Broadcast();
 } 
 ANegativeScoreObstacle::ANegativeScoreObstacle()
 {
