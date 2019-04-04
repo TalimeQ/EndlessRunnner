@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BaseObstacle.h"
-
+#include "EndlessRunnerCharacter.h"
 
 // Sets default values
 ABaseObstacle::ABaseObstacle()
@@ -25,7 +25,7 @@ void ABaseObstacle::Tick(float DeltaTime)
 
 }
 
-void ABaseObstacle::OnObstacleCollision()
+void ABaseObstacle::OnObstacleCollision_Implementation(AEndlessRunnerCharacter* runnerCharacter)
 {
 	UE_LOG(LogTemp, Warning, TEXT("COLLIDED with %s"), *(this->GetName()));
 

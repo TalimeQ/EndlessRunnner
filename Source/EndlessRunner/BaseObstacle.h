@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "BaseObstacle.generated.h"
 
+class AEndlessRunnerCharacter;
 UCLASS()
 class ENDLESSRUNNER_API ABaseObstacle : public AActor
 {
@@ -22,8 +23,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	UFUNCTION(BlueprintCallable, Category = "Obstacle")
-	virtual void OnObstacleCollision();
-	
+	UFUNCTION(BlueprintNativeEvent, Category = "Obstacle")
+	void OnObstacleCollision(AEndlessRunnerCharacter* runnerCharacter);
+	virtual void OnObstacleCollision_Implementation(AEndlessRunnerCharacter* runnerCharacter);
 	
 };
