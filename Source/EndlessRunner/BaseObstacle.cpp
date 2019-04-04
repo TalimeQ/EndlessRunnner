@@ -25,8 +25,14 @@ void ABaseObstacle::Tick(float DeltaTime)
 
 }
 
-void ABaseObstacle::OnObstacleCollision_Implementation(AEndlessRunnerCharacter* runnerCharacter)
+void ABaseObstacle::OnObstacleCollision_Implementation(AEndlessRunnerCharacter* endlessRunner)
 {
-	UE_LOG(LogTemp, Warning, TEXT("COLLIDED with %s"), *(this->GetName()));
+	UE_LOG(LogTemp, Warning, TEXT("OnObstacleCollision"))
+}
 
+//A bandaid somehow i cannot call native event after engine crash, dont really want to fix it atm
+void ABaseObstacle::OnObstacleColl(AEndlessRunnerCharacter* characterRef)
+{
+	UE_LOG(LogTemp,Warning,TEXT("OnObstacleColl"))
+	OnObstacleCollision(characterRef);
 }

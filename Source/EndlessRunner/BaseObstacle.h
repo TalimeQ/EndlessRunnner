@@ -25,6 +25,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	UFUNCTION(BlueprintNativeEvent, Category = "Obstacle")
 	void OnObstacleCollision(AEndlessRunnerCharacter* runnerCharacter);
-	virtual void OnObstacleCollision_Implementation(AEndlessRunnerCharacter* runnerCharacter);
-	
+	virtual void OnObstacleCollision_Implementation(AEndlessRunnerCharacter* endlessRunner);
+	UFUNCTION(BlueprintCallable, Category = "Obstacle")
+	void OnObstacleColl(AEndlessRunnerCharacter* characterRef);
 };
