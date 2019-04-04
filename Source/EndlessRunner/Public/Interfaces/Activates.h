@@ -3,13 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
+#include "Activates.generated.h"
 /**
  * 
  */
-class ENDLESSRUNNER_API Activates
+
+UINTERFACE(BlueprintType)
+class ENDLESSRUNNER_API  UActivates : public UInterface
 {
+	GENERATED_UINTERFACE_BODY()
+};
+
+class ENDLESSRUNNER_API IActivates
+{
+	GENERATED_IINTERFACE_BODY()
 public:
-	Activates();
-	~Activates();
+	//classes using this interface must implement ReactToHighNoon
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MyCategory")
+		bool Deactivate();
+
+	//classes using this interface may implement ReactToMidnight
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MyCategory")
+		bool Activate();
 };

@@ -2,10 +2,8 @@
 
 #include "Activates.h"
 
-Activates::Activates()
+UActivates::UActivates(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
-}
 
-Activates::~Activates()
-{
 }
