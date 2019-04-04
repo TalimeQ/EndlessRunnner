@@ -70,6 +70,7 @@ void  AEndlessRunnerCharacter::Tick(float deltaTime)
 
 void AEndlessRunnerCharacter::MoveForward(float Value)
 {
+	if (!bCanPlay) return;
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is forward
@@ -84,7 +85,7 @@ void AEndlessRunnerCharacter::MoveForward(float Value)
 
 void AEndlessRunnerCharacter::MoveRight(float Value)
 {
-	if (bCanTurn && Value != 0.0f) TurnNinety(Value);
+	if (!bCanPlay) return;
 	if( (Controller != NULL) && (Value != 0.0f) )
 	{
 		// find out which way is right

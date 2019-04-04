@@ -6,6 +6,14 @@
 #include "GameFramework/GameModeBase.h"
 #include "EndlessRunnerGameMode.generated.h"
 
+UENUM(BlueprintType)
+enum class ECurrentGameState: uint8
+{
+	ECGS_IsPlaying,
+	EGCS_IsFinished,
+	EGCS_Unknown
+};
+
 UCLASS(minimalapi)
 class AEndlessRunnerGameMode : public AGameModeBase
 {
@@ -13,7 +21,10 @@ class AEndlessRunnerGameMode : public AGameModeBase
 
 public:
 	AEndlessRunnerGameMode();
+protected:
+	UPROPERTY(BlueprintReadWrite, Category = "GameState")
+		ECurrentGameState currentGameState = ECurrentGameState::EGCS_Unknown;
+
+
+
 };
-
-
-

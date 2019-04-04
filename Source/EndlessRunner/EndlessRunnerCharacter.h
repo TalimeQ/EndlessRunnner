@@ -37,7 +37,7 @@ protected:
 		float movementSpeed = 1.0f;
 
 	UPROPERTY(Category = "Movement", BlueprintReadWrite)
-		bool bCanTurn = false;
+		bool bCanPlay = true;
 
 protected:
 	// APawn interface
