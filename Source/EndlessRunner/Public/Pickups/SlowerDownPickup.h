@@ -22,6 +22,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Mesh")
 	class UStaticMeshComponent* objMesh;
 
+
 public:
 	virtual void OnItemPickup(AEndlessRunnerCharacter* runnerCharacter) override;
 	ASlowerDownPickup();
