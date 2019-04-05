@@ -28,6 +28,6 @@ public:
 
 protected:
 	UFUNCTION(BlueprintCallable)
-	void getUpdatedSpeed(UMovementComponent * runnerMovement);
+	float getUpdatedSpeed(UMovementComponent * runnerMovement);
 	
 };

@@ -11,10 +11,11 @@ ASlowerDownPickup::ASlowerDownPickup()
 	objMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Object Mesh"));
 }
 
-void ASlowerDownPickup::getUpdatedSpeed(UMovementComponent * runnerMovement)
+float ASlowerDownPickup::getUpdatedSpeed(UMovementComponent * runnerMovement)
 {
 	 float fCurrentRunnerSpeed = runnerMovement->GetMaxSpeed();
 	 float fNewRunnerSpeed = fCurrentRunnerSpeed - fSlowDownAmount;
+	 return fNewRunnerSpeed;
 }
 
 void ASlowerDownPickup::OnItemPickup(AEndlessRunnerCharacter * runnerCharacter)
