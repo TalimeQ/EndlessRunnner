@@ -17,7 +17,15 @@ AEndlessRunnerGameMode::AEndlessRunnerGameMode()
 TArray<int> AEndlessRunnerGameMode::updateScores(TArray<int> scoresToUpdate)
 {
 	TArray<int> updatedArray;
-	scoresToUpdate.Sort();
+
+	scoresToUpdate.Sort([]( int A,  int B) {
+		return A > B;
+	});
+	
+	for (int u : scoresToUpdate)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Stored %d"), u);
+	}
 	for (int i = 0; i < 10; i++)
 	{
 		// What a terrible way to do it
