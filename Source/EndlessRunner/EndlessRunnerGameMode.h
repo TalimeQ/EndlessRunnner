@@ -25,6 +25,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, Category = "GameState")
 		ECurrentGameState currentGameState = ECurrentGameState::EGCS_Unknown;
 
-
+	UFUNCTION(BlueprintCallable, Category = "Scores")
+		TArray<int> updateScores(TArray<int> scoresToUpdate );
 
 };

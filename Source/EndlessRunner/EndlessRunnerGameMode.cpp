@@ -12,4 +12,16 @@ AEndlessRunnerGameMode::AEndlessRunnerGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+}
+TArray<int> AEndlessRunnerGameMode::updateScores(TArray<int> scoresToUpdate)
+{
+	TArray<int> updatedArray;
+	scoresToUpdate.Sort();
+	for (int i = 0; i < 10; i++)
+	{
+		// What a terrible way to do it
+		updatedArray.Add(scoresToUpdate[i]);
+	}
+	return updatedArray;
 }
