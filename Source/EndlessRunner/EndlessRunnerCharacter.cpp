@@ -63,6 +63,7 @@ void AEndlessRunnerCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 void  AEndlessRunnerCharacter::Tick(float deltaTime)
 {
+	Super::Tick(deltaTime);
 	//Movement input is multiplied by delta, no point of doing it here
 	MoveForward(movementSpeed);
 	movementSpeed += deltaTime;
